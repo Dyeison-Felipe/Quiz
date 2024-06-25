@@ -30,7 +30,7 @@ export const DivInitial = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 1em;
+  gap: 2em;
 `;
 
 export const LinkPage = styled(Link)`
@@ -39,23 +39,34 @@ export const LinkPage = styled(Link)`
   color: #fff;
   background-color: #211e1e;
   border-radius: 0.5em;
-
   &:hover {
     background-color: #000;
   }
 `;
 
-export const DivQuestions = styled.div`
-  width: 35em;
-  height: 30em;
-  padding: 2em;
-  border: 0.1em solid #fff;
+export const ButtonQuestions = styled.button`
+  width: 25em;
+  height: 2.5em;
   border-radius: 0.5em;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  gap: 1em;
+  flex-direction:column;
+  background-color: #4169e1;
+  color: #fff;
+  font-size:1em;
+  &:hover {
+    background-color: #3054be;
+    transform: scale(1.05);
+  }
+
+  &.correct{
+    background-color: #05ab05;
+  }
+
+  &.incorrect{
+    background-color: red;
+  }
 `;
 
 // Category
@@ -63,16 +74,15 @@ export const DivQuestions = styled.div`
 export const DivCategory = styled.div`
   width: 100%;
   height: auto;
-  padding: 2em;
   border-radius: 0.5em;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction:column;
   gap: 0.5em;
-`
+`;
 
-export const ButtonCategory = styled(Link)`
+export const LinkCategory = styled(Link)`
   display: inline-block;
   padding:0.2em;
   text-decoration: none;
@@ -86,5 +96,6 @@ export const ButtonCategory = styled(Link)`
 
   &:hover {
     background-color: #3054be;
+    transform: scale(1.05);
   }
 `;

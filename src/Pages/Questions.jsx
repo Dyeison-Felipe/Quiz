@@ -1,76 +1,89 @@
-import * as S from "../Styles/style"; // Verifique se o caminho para os estilos está correto
-import { useContext } from "react";
-import { QuizContext } from "../context/Quiz"; // Verifique se o caminho para o contexto está correto
+import { useContext, useInsertionEffect, useState } from "react";
+import * as S from "../Styles/style";
+import { QuizContext } from "../context/Quiz"; 
+import { data } from "../Data/question";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Questions = () => {
-  const { selectedRadio, setSelectedRadio } = useContext(QuizContext);
+  const [
+    currentCategoryIndex,
+    setCurrentCategoryIndex,
+    selectedCategory,
+    setSelectedCategory,
+    score,
+    setScore
+  ] = useContext(QuizContext);
 
-  const handleChange = (event) => {
-    setSelectedRadio(event.target.value);
-    console.log(selectedRadio);
-  };
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [ optionSelected, setOptionSelected] = useState(null)
+  const [optionCorrect, setOptionCorrect] = useState(null)
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const navigate = useNavigate()
 
-    if (selectedRadio) {
-      alert(`Selecionado: ${selectedRadio}`);
+  const currentQuestion = data[currentCategoryIndex].questions[currentQuestionIndex];
+  const tip = currentQuestion.tip
+
+
+  const handleClick = (option) => {
+
+    setOptionCorrect(currentQuestion.response)
+
+    setOptionSelected(option)
+    if (optionSelected === optionCorrect) {
+      setScore(score + 2);
     } else {
-      alert("Nenhuma opção selecionada");
+      alert("Resposta errada");
     }
-    console.log(selectedRadio);
+    setTimeout(() => {
+      nextQuestion()
+    }, 1000)
+
   };
+
+  const jump = () => {
+    nextQuestion()
+  }
+
+  const nextQuestion = () => {
+    if (currentQuestionIndex < data[currentCategoryIndex].questions.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    } else {
+      navigate('/end');
+    }
+    setOptionCorrect(null)
+    setOptionSelected(null)
+  }
+
+  const buttonColor = (option) => {
+    if(optionSelected === option) {
+      return option === optionCorrect ? 'correct' : 'incorrect'
+    }
+
+    return '';
+  }
+
+
+
+  const Options = currentQuestion.options.map((option, index) => (
+    <S.ButtonQuestions 
+      key={index} 
+      onClick={() => handleClick(option)}
+      className={buttonColor(option)}
+      >
+      {option}
+    </S.ButtonQuestions>
+  ));
 
   return (
     <S.Section>
+      <h1>{selectedCategory}</h1>
       <S.DivInitial>
-        <form onSubmit={handleSubmit}>
-          <label>
-            <input
-              type="radio"
-              name="option"
-              value="1"
-              onChange={handleChange}
-              checked={selectedRadio === "1"}
-            />
-            Radio 1
-          </label>
-
-          <label>
-            <input
-              type="radio"
-              name="option"
-              value="2"
-              onChange={handleChange}
-              checked={selectedRadio === "2"}
-            />
-            Radio 2
-          </label>
-
-          <label>
-            <input
-              type="radio"
-              name="option"
-              value="3"
-              onChange={handleChange}
-              checked={selectedRadio === "3"}
-            />
-            Radio 3
-          </label>
-
-          <label>
-            <input
-              type="radio"
-              name="option"
-              value="4"
-              onChange={handleChange}
-              checked={selectedRadio === "4"}
-            />
-            Radio 4
-          </label>
-
-          <button type="submit">Enviar</button>
-        </form>
+        {currentQuestion.question}
+        <S.DivCategory>
+          {Options}
+        </S.DivCategory>
+          dica: {tip}
+          <button onClick={jump}>Pular</button>
       </S.DivInitial>
     </S.Section>
   );
