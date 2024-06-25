@@ -1,14 +1,15 @@
+// QuizProvider.js
 import { createContext, useState } from 'react';
 
-// Criação do contexto
 export const QuizContext = createContext();
 
-// Provedor do contexto
 export const QuizProvider = ({ children }) => {
-  const [selectedRadio, setSelectedRadio] = useState("");
+  const [currentCategoryIndex, setCurrentCategoryIndex] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState('');
+  const [score, setScore] = useState(0);
 
   return (
-    <QuizContext.Provider value={{ selectedRadio, setSelectedRadio }}>
+    <QuizContext.Provider value={[currentCategoryIndex, setCurrentCategoryIndex, selectedCategory, setSelectedCategory, score, setScore]}>
       {children}
     </QuizContext.Provider>
   );
