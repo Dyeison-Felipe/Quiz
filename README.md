@@ -1,12 +1,12 @@
 <h1 Align="Center">Quiz Tech</h1>
 
-<p>Descrição:</p>
+<h2>Descrição:</h2>
 
-<h3>Este projeto Tem como ideia um quiz de perguntas variadas</h3>
+<h4>Este projeto Tem como ideia um quiz de perguntas variadas</h4>
 
-<p>Status:</p>
+## <h2>Status:</h2>
 
-<h3>React Select 🚀 No ar</h3>
+<h4>React Select 🚀 No ar</h4>
 
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/15af9d72-60ce-49ec-8244-d4e88a0c0b8a/deploy-status)](https://quiiztech.netlify.app/)
