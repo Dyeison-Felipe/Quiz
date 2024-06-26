@@ -1,4 +1,4 @@
-<h1 Align="Center">Quiz</h1>
+<h1 Align="Center">Quiz Tech</h1>
 
 <p>Descrição:</p>
 
