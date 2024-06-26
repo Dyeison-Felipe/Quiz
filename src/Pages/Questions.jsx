@@ -1,78 +1,66 @@
-import { useContext, useInsertionEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import * as S from "../Styles/style";
-import { QuizContext } from "../context/Quiz"; 
+import { QuizContext } from "../context/Quiz";
 import { data } from "../Data/question";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import ButtonQuestions from "../components/ButtonQuestions";
 
 const Questions = () => {
-  const [
-    currentCategoryIndex,
-    setCurrentCategoryIndex,
-    selectedCategory,
-    setSelectedCategory,
-    score,
-    setScore
-  ] = useContext(QuizContext);
+  const { currentCategoryIndex, selectedCategory, setScore } =
+    useContext(QuizContext);
 
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [ optionSelected, setOptionSelected] = useState(null)
-  const [optionCorrect, setOptionCorrect] = useState(null)
+  const [optionSelected, setOptionSelected] = useState(null);
+  const [optionCorrect, setOptionCorrect] = useState(null);
+  const [isShowCorrect, setIsShowCorrect] = useState(false);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const currentQuestion = data[currentCategoryIndex].questions[currentQuestionIndex];
-  const tip = currentQuestion.tip
+  useEffect(() => {
+    setScore(0);
+  }, [setScore]);
 
+  const currentQuestion =
+    data[currentCategoryIndex].questions[currentQuestionIndex];
+  const tip = currentQuestion.tip;
 
   const handleClick = (option) => {
+    setIsShowCorrect(true);
+    setOptionCorrect(currentQuestion.response);
+    setOptionSelected(option);
 
-    setOptionCorrect(currentQuestion.response)
-
-    setOptionSelected(option)
-    if (optionSelected === optionCorrect) {
-      setScore(score + 2);
-    } else {
-      alert("Resposta errada");
+    if (option === currentQuestion.response) {
+      setScore((score) => score + 2);
     }
     setTimeout(() => {
-      nextQuestion()
-    }, 1000)
-
+      nextQuestion();
+    }, 1500);
   };
 
   const jump = () => {
-    nextQuestion()
-  }
+    nextQuestion();
+  };
 
   const nextQuestion = () => {
-    if (currentQuestionIndex < data[currentCategoryIndex].questions.length - 1) {
+    if (
+      currentQuestionIndex <
+      data[currentCategoryIndex].questions.length - 1
+    ) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
     } else {
-      navigate('/end');
+      navigate("/end");
     }
-    setOptionCorrect(null)
-    setOptionSelected(null)
-  }
+    setIsShowCorrect(false);
+    setOptionCorrect(null);
+    setOptionSelected(null);
+  };
 
   const buttonColor = (option) => {
-    if(optionSelected === option) {
-      return option === optionCorrect ? 'correct' : 'incorrect'
+    if (optionSelected === option) {
+      return option === optionCorrect ? "correct" : "incorrect";
     }
-
-    return '';
-  }
-
-
-
-  const Options = currentQuestion.options.map((option, index) => (
-    <S.ButtonQuestions 
-      key={index} 
-      onClick={() => handleClick(option)}
-      className={buttonColor(option)}
-      >
-      {option}
-    </S.ButtonQuestions>
-  ));
+    return "";
+  };
 
   return (
     <S.Section>
@@ -80,10 +68,37 @@ const Questions = () => {
       <S.DivInitial>
         {currentQuestion.question}
         <S.DivCategory>
-          {Options}
-        </S.DivCategory>
+          {currentQuestion.options.map((option) => (
+            <ButtonQuestions
+              key={option.toString()}
+              handleClick={handleClick}
+              buttonColor={buttonColor}
+              option={option}
+              className={
+                option === optionCorrect && isShowCorrect ? "correct" : ""
+              }
+            />
+          ))}
           dica: {tip}
-          <button onClick={jump}>Pular</button>
+        </S.DivCategory>
+
+
+        <S.MenuButton>
+        
+        <S.LinkPage to='/category'>Cancelar</S.LinkPage>
+        {currentQuestionIndex <
+        data[currentCategoryIndex].questions.length - 1 ? (
+          <S.LinkPage onClick={jump}>Pular</S.LinkPage>
+        ) : (
+          ""
+        )}
+        {currentQuestionIndex ===
+        data[currentCategoryIndex].questions.length - 1 ? (
+          <S.LinkPage to="/end">Finalizar</S.LinkPage>
+        ) : (
+          ""
+        )}
+        </S.MenuButton>
       </S.DivInitial>
     </S.Section>
   );

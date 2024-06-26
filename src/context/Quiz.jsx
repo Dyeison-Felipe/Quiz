@@ -9,7 +9,7 @@ export const QuizProvider = ({ children }) => {
   const [score, setScore] = useState(0);
 
   return (
-    <QuizContext.Provider value={[currentCategoryIndex, setCurrentCategoryIndex, selectedCategory, setSelectedCategory, score, setScore]}>
+    <QuizContext.Provider value={{currentCategoryIndex, setCurrentCategoryIndex, selectedCategory, setSelectedCategory, score, setScore}}>
       {children}
     </QuizContext.Provider>
   );

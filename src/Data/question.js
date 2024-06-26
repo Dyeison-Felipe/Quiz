@@ -137,4 +137,109 @@ export const data = [
       },
     ],
   },
+  {
+    category: "Conhecimentos Gerais",
+    questions: [
+      {
+        question: "Quantos países fazem parte da União Europeia em 2024?",
+        options: ["24", "27", "30", "33"],
+        tip: "Número de países membros atualizados recentemente",
+        response: "27",
+      },
+      {
+        question: "Quem é considerado o pai da filosofia ocidental?",
+        options: ["Sócrates", "Aristóteles", "Platão", "Heráclito"],
+        tip: "Conhecido por suas contribuições para o pensamento ético",
+        response: "Sócrates",
+      },
+      {
+        question: "Qual é o idioma mais falado no mundo como primeira língua?",
+        options: ["Inglês", "Mandarim", "Espanhol", "Hindi"],
+        tip: "Idioma oficial de muitos países e organizações internacionais",
+        response: "Mandarim",
+      },
+      {
+        question: "Quem foi o primeiro ser humano a viajar para o espaço?",
+        options: ["Yuri Gagarin", "Neil Armstrong", "Buzz Aldrin", "Alan Shepard"],
+        tip: "Realizou um voo orbital em 1961",
+        response: "Yuri Gagarin",
+      },
+      {
+        question: "Qual é o maior estado do Brasil em área territorial?",
+        options: ["Amazonas", "Minas Gerais", "Bahia", "Mato Grosso"],
+        tip: "Coberto em grande parte pela floresta amazônica",
+        response: "Amazonas",
+      },
+    ],
+  },
+  {
+    category: "Matemática",
+    questions: [
+      {
+        question: "Qual é a derivada de x² em relação a x?",
+        options: ["2x", "x", "1/x", "2"],
+        tip: "Aplicação do conceito básico de derivadas",
+        response: "2x",
+      },
+      {
+        question: "Qual é o número de Euler (e) aproximado?",
+        options: ["2.71", "3.14", "1.41", "1.61"],
+        tip: "Constante matemática irracional importante em cálculos exponenciais",
+        response: "2.71",
+      },
+      {
+        question: "Qual é o resultado de 25 ÷ 5 + 3 * 2?",
+        options: ["11", "16", "17", "18"],
+        tip: "Lembre-se da ordem correta das operações",
+        response: "11",
+      },
+      {
+        question: "Quantos lados tem um heptágono?",
+        options: ["6", "7", "8", "9"],
+        tip: "Prefixo 'hepta' indica o número de lados",
+        response: "7",
+      },
+      {
+        question: "Qual é o resultado de √(9 + 16) * 2?",
+        options: ["10", "12", "14", "16"],
+        tip: "Primeiro calcule a raiz quadrada e depois multiplique por 2",
+        response: "10",
+      },
+    ],
+  },
+  {
+    category: "Geografia",
+    questions: [
+      {
+        question: "Qual é o ponto mais baixo da superfície terrestre?",
+        options: ["Mariana Trench", "Lago Baikal", "Vale da Morte", "Fossa das Marianas"],
+        tip: "Localizado no Oceano Pacífico",
+        response: "Fossa das Marianas",
+      },
+      {
+        question: "Qual é o país com a maior linha costeira do mundo?",
+        options: ["Canadá", "Rússia", "Austrália", "Brasil"],
+        tip: "Extensa fronteira marítima",
+        response: "Canadá",
+      },
+      {
+        question: "Qual é a maior ilha do mundo?",
+        options: ["Groenlândia", "Austrália", "Nova Zelândia", "Madagáscar"],
+        tip: "Parte do Reino da Dinamarca",
+        response: "Groenlândia",
+      },
+      {
+        question: "Qual é o país com maior número de fusos horários?",
+        options: ["Estados Unidos", "Rússia", "China", "Brasil"],
+        tip: "Extensão territorial abrangente",
+        response: "Rússia",
+      },
+      {
+        question: "Qual é a maior cordilheira do mundo em extensão?",
+        options: ["Andes", "Himalaias", "Alpes", "Cordilheira dos Andes"],
+        tip: "Localizada na América do Sul",
+        response: "Andes",
+      },
+    ],
+  },
 ];

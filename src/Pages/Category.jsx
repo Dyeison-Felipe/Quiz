@@ -2,23 +2,13 @@ import * as S from "../Styles/style";
 import { data } from "../Data/question";
 import { useContext } from "react";
 import { QuizContext } from "../context/Quiz";
+import ButtonCategory from "../components/ButtonCategory";
 
 const Category = () => {
-  const [
-    currentCategoryIndex,
-    setCurrentCategoryIndex,
-    selectedCategory,
-    setSelectedCategory,
-  ] = useContext(QuizContext);
-
-  const categories = data.map((item, index) => (
-    <S.DivCategory key={index} onClick={() => handleClick(index)}>
-      <S.LinkCategory to="/questions">{item.category}</S.LinkCategory>
-    </S.DivCategory>
-  ));
+  const { setCurrentCategoryIndex, setSelectedCategory } =
+    useContext(QuizContext);
 
   const handleClick = (index) => {
-    // função para pegar o indice da categoria que o usario clicar
     setCurrentCategoryIndex(index);
     setSelectedCategory(data[index].category);
   };
@@ -26,10 +16,13 @@ const Category = () => {
   return (
     <S.Section>
       <h1>QuizTech</h1>
-
       <S.DivInitial>
         <h2>Categorias</h2>
-        {categories}
+        <S.DivCategory>
+          {data.map((item, index) => (
+            <ButtonCategory key={index} item={item} handleClick={() => handleClick(index)} />
+          ))}
+        </S.DivCategory>
         <S.DivCategory>
           <S.LinkPage to="/">Voltar</S.LinkPage>
         </S.DivCategory>
