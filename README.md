@@ -4,7 +4,7 @@
 
 <h4>Este projeto Tem como ideia um quiz de perguntas variadas</h4>
 
-## <h2>Status:</h2>
+<h2>Status:</h2>
 
 <h4>React Select 🚀 No ar</h4>
 
