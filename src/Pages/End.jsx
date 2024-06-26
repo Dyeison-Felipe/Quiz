@@ -16,7 +16,7 @@ const End = () => {
         ) : (
           ""
         )}
-        <p>sua porntuação foi: {score}</p>
+        <p>sua porntuação foi: {score} pontos.</p>
         <S.LinkPage to='/category'>Categorias</S.LinkPage>
       </S.DivInitial>
     </S.Section>
