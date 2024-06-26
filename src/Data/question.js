@@ -238,7 +238,7 @@ export const data = [
         question: "Qual é a maior cordilheira do mundo em extensão?",
         options: ["Andes", "Himalaias", "Alpes", "Cordilheira dos Andes"],
         tip: "Localizada na América do Sul",
-        response: "Andes",
+        response: "Cordilheira dos Andes",
       },
     ],
   },
