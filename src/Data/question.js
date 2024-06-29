@@ -177,30 +177,30 @@ export const data = [
     questions: [
       {
         question: "Qual é a derivada de x² em relação a x?",
-        options: ["2x", "x", "1/x", "2"],
+        options: [ "x", "1/x", "2","2x"],
         tip: "Aplicação do conceito básico de derivadas",
         response: "2x",
       },
       {
         question: "Qual é o número de Euler (e) aproximado?",
-        options: ["2.71", "3.14", "1.41", "1.61"],
+        options: [ "3.14", "1.41", "2.71", "1.61"],
         tip: "Constante matemática irracional importante em cálculos exponenciais",
         response: "2.71",
       },
       {
-        question: "Qual é o resultado de 25 ÷ 5 + 3 * 2?",
-        options: ["11", "16", "17", "18"],
+        question: "Qual é o resultado de 25 ÷ 5 + 3 x 2?",
+        options: [ "16", "11", "17", "18"],
         tip: "Lembre-se da ordem correta das operações",
         response: "11",
       },
       {
         question: "Quantos lados tem um heptágono?",
-        options: ["6", "7", "8", "9"],
+        options: ["6", "8", "9", "7"],
         tip: "Prefixo 'hepta' indica o número de lados",
         response: "7",
       },
       {
-        question: "Qual é o resultado de √(9 + 16) * 2?",
+        question: "Qual é o resultado de √(9 + 16) x 2?",
         options: ["10", "12", "14", "16"],
         tip: "Primeiro calcule a raiz quadrada e depois multiplique por 2",
         response: "10",
@@ -218,13 +218,13 @@ export const data = [
       },
       {
         question: "Qual é o país com a maior linha costeira do mundo?",
-        options: ["Canadá", "Rússia", "Austrália", "Brasil"],
+        options: [ "Rússia", "Canadá", "Austrália", "Brasil"],
         tip: "Extensa fronteira marítima",
         response: "Canadá",
       },
       {
         question: "Qual é a maior ilha do mundo?",
-        options: ["Groenlândia", "Austrália", "Nova Zelândia", "Madagáscar"],
+        options: [ "Austrália", "Nova Zelândia", "Groenlândia", "Madagáscar"],
         tip: "Parte do Reino da Dinamarca",
         response: "Groenlândia",
       },

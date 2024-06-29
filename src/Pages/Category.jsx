@@ -18,6 +18,7 @@ const Category = () => {
       <h1>QuizTech</h1>
       <S.DivInitial>
         <h2>Categorias</h2>
+        <p>Escolha uma categoria</p>
         <S.DivCategory>
           {data.map((item, index) => (
             <ButtonCategory key={index} item={item} handleClick={() => handleClick(index)} />

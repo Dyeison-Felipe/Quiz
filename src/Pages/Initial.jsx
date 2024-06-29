@@ -3,9 +3,9 @@ import * as S from "../Styles/style";
 const Initial = () => {
   return (
     <S.Section>
-      <h1>QuizTech</h1>
+      <h1>Quiz Tech</h1>
       <S.DivInitial>
-        <h3>Bem-vindo ao Quiz da Programação!</h3>
+        <h3>Bem-vindo ao Quiz Tech!</h3>
         <p>
           Prepare-se para testar seus conhecimentos e se divertir com as
           perguntas desafiadoras que preparamos para você. Este quiz abrange
